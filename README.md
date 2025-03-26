@@ -100,6 +100,11 @@ project-root/
    ```bash
    DJANGO_SECRET_KEY=your-secret-key
    DEBUG=True
+   MYSQL_DATABASE=hikes_db
+   MYSQL_USER=user
+   MYSQL_PASSWORD=userpassword
+   MYSQL_HOST=db
+   MYSQL_PORT=3306
    CELERY_BROKER_URL=redis://redis:6379/0
    ```
 
@@ -108,10 +113,14 @@ project-root/
    ```bash
    docker-compose up -d
    ```
+   временный фикс
+   ```bash
+   docker-compose exec web python manage.py migrate --noinput
+   ```
 
    При первом запуске будут выполнены:
    - Миграции Django
-   - Команда `create_fake_data` (генерация 10 фейковых походов и случайное число заявок)
+   - Команда `create_fake_data` (генерация 10 фейковых походов и случайное число заявок) (docker-compose exec web python manage.py create_fake_data) 
    - Запуск gunicorn (Django), Celery‑воркера, Redis, базы данных (MariaDB) и Nginx
 
 4. **Проверьте работу:**
