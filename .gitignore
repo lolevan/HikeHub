@@ -90,3 +90,6 @@ sw.*
 *.swp
 
 /venv/
+
+
+__pycache__
