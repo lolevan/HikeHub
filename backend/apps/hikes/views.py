@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Hike
+from .serializers import HikeSerializer
 
-# Create your views here.
+
+class HikeListView(generics.ListAPIView):
+    """Список всех походов."""
+    queryset = Hike.objects.all()
+    serializer_class = HikeSerializer
+
+
+class HikeDetailView(generics.RetrieveAPIView):
+    """Детали одного похода."""
+    queryset = Hike.objects.all()
+    serializer_class = HikeSerializer
