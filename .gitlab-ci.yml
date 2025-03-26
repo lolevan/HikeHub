@@ -1,0 +1,18 @@
+stages:
+  - build
+  - deploy
+
+build_backend:
+  stage: build
+  script:
+    - docker build -t registry.gitlab.com/da/HikeHub/backend:latest ./backend
+    - docker push registry.gitlab.com/da/HikeHub/backend:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  script:
+    - ssh deploy@yourserver 'cd /path/to/project && docker-compose pull && docker-compose up -d'
+  only:
+    - main
