@@ -89,8 +89,8 @@ project-root/
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone https://your-repo-url.git
-   cd project-root
+   git clone https://github.com/lolevan/HikeHub.git
+   cd HikeHub
    ```
 
 2. **Настройте файл окружения (.env):**
