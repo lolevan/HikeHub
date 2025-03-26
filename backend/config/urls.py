@@ -16,8 +16,19 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from apps.hikes.views import HikeListView, HikeDetailView
+from apps.applications.views import ApplicationCreateView
+
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path('admin/', admin.site.urls),
+
+    # Публичные API (без авторизации)
+    path('api/v1/public/hikes/', HikeListView.as_view(), name='hike-list'),
+    path('api/v1/public/hikes/<int:pk>/', HikeDetailView.as_view(), name='hike-detail'),
+    path('api/v1/public/hikes/<int:hike_id>/applications/', ApplicationCreateView.as_view(), name='application-create'),
+
+    # Приватные API (панель управления) — аутентификация JWT
+    path('api/v1/private/users/', include('apps.users.urls')),
 ]
