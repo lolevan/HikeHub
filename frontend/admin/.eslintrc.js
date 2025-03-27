@@ -13,5 +13,8 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    "vue/comment-directive": "off",
+    "space-before-function-paren": "off"
+    // можно отключить и другие правила, которые вызывают ошибки
   }
 }

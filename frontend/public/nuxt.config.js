@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'universal',  // SSR
+  ssr: true,
   head: {
     title: 'HikeHub - Публичный сайт',
     meta: [

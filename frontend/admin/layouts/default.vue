@@ -28,7 +28,7 @@
     <section class="main-content columns">
       <aside class="column is-2 section">
         <p class="menu-label is-hidden-touch">
-          General
+          Общие
         </p>
         <ul class="menu-list">
           <li
@@ -58,14 +58,14 @@ export default {
     return {
       items: [
         {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
+          title: 'Походы',
+          icon: 'map',
+          to: { name: 'hikes' }
         },
         {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
+          title: 'Заявки',
+          icon: 'inbox',
+          to: { name: 'applications' }
         }
       ]
     }

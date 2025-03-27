@@ -13,14 +13,10 @@ export const mutations = {
 
 export const actions = {
   async login({ commit }, credentials) {
-    try {
-      const data = await this.$axios.$post('/api/v1/private/users/login/', credentials)
-      commit('setAuth', { loggedIn: true, token: data.access })
-      // Сохраним токен в заголовках axios, чтобы он отправлялся
-      this.$axios.setToken(data.access, 'Bearer')
-    } catch (err) {
-      throw err
-    }
+    const data = await this.$axios.$post('/api/v1/private/users/login/', credentials)
+    commit('setAuth', { loggedIn: true, token: data.access })
+    // Сохраним токен в заголовках axios, чтобы он отправлялся
+    this.$axios.setToken(data.access, 'Bearer')
   },
   logout({ commit }) {
     commit('setAuth', { loggedIn: false, token: null })
