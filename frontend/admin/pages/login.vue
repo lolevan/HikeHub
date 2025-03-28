@@ -8,7 +8,7 @@
       <b-field label="Пароль">
         <b-input type="password" v-model="password"></b-input>
       </b-field>
-      <b-button type="is-primary">Войти</b-button>
+      <b-button type="is-primary" native-type="submit">Войти</b-button>
     </form>
   </section>
 </template>

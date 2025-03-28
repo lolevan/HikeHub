@@ -8,13 +8,20 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ]
   },
+  server: {
+    host: '0.0.0.0', // позволяет принимать соединения извне
+    port: 3000
+  },
   modules: [
     '@nuxtjs/axios',
     'nuxt-buefy'
   ],
   axios: {
-    baseURL: process.env.API_BASE_URL || 'http://localhost:8000'
+    baseURL: process.env.API_BASE_URL || 'http://localhost'
   },
+  plugins: [
+    '~/plugins/vee-validate.js'
+  ],
   /*
   ** Build configuration
   */

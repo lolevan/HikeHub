@@ -1,6 +1,10 @@
 
 export default {
-  mode: 'spa',
+  ssr: false,
+  server: {
+    host: '0.0.0.0', // обязательно для внешнего доступа
+    port: 3001
+  },
   /*
   ** Headers of the page
   */
@@ -48,7 +52,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: process.env.API_BASE_URL || 'http://localhost:8000'
+    baseURL: process.env.API_BASE_URL || 'http://localhost'
   },
   router: {
     middleware: ['auth'] // проверка авторизации

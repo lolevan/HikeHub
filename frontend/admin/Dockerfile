@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:16-slim
 
 WORKDIR /app
 # для панели управления (CSR)
@@ -11,6 +11,7 @@ COPY . ./
 RUN npm run build
 
 EXPOSE 3001
+ENV PORT 3001
 
 # Запуск в режиме продакшена
 CMD ["npm", "run", "start"]
